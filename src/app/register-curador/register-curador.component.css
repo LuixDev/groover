@@ -1,0 +1,28 @@
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto; /* Esto centra horizontalmente el contenedor de la barra de navegación */
+}
+.navbar-nav .nav-item {
+    margin-right: 8px; /* Añade espacio entre los elementos de navegación */
+}
+
+.navbar-nav .nav-link {
+    font-size: 13px; /* Ajusta el tamaño de fuente de los enlaces de navegación */
+}
+
+.navbar-nav .btn {
+    font-size: 13px; /* Ajusta el tamaño de fuente de los botones */
+    padding: 6px 10px; /* Añade un poco más de espacio alrededor de los botones */
+}
+.mr-3 {
+    margin-right: 100px; /* Puedes ajustar el valor según lo necesites */
+}
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+

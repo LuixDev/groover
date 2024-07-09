@@ -1,0 +1,113 @@
+
+.modal-header .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+}
+.modal-header .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f7f7f7;
+}
+
+.containerr {
+  margin-top: 80px;
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  width: 80%;
+  max-width: 800px;
+}
+
+.containerr h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.containerr p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.containerr span {
+  color: red;
+}
+
+.campaignss {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.campaignn {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 45%;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.campaignn img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.campaignn h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.campaignn p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.campaignn button {
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.campaignn button:hover {
+  background-color: #ff5434;
+}
+#header {
+  background-color: rgba(233, 233, 233, 0.5); /* Ajusta el último valor (0.5) para cambiar la opacidad */
+  backdrop-filter: blur(10px); /* Efecto de desenfoque (opcional) */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  position: absolute; /* Para mantener el header fijo en la parte superior */
+  width: 100%; /* Opcional, ajusta según tu diseño */
+  z-index: 1000; /* Ajusta el z-index según sea necesario */
+  /* Otros estilos según tus necesidades */
+}
+#header .navbar-brand {
+  font-size: 22px;
+  font-weight: bold;
+  color: #00366f; /* Cambia este color al que desees */
+  text-decoration: none; /* Para quitar subrayado de enlace */
+}
+
+#header .navbar-brand:hover {
+  color: #00366f; /* Color al pasar el mouse */
+}
