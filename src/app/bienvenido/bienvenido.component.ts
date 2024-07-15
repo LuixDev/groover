@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Renderer2, ElementRef, ViewChild, OnInit } from '@angular/core';
+
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { HttpHeaders } from '@angular/common/http';
 declare var $: any; // Declara la variable global de jQuery
 @Component({
   selector: 'app-bienvenido',
@@ -9,12 +16,8 @@ declare var $: any; // Declara la variable global de jQuery
 })
 export class BienvenidoComponent  {
   constructor() {}
-
-  openModal() {
-    $('#exampleModalCenter').modal('show');
-  }
-
-  closeModal() {
-    $('#exampleModalCenter').modal('hide');
+  cerrarSesion() {
+    localStorage.removeItem('token');
+   
   }
 }

@@ -111,12 +111,12 @@
           <span class="ion-ios-person"></span>
         </div>
         <h3 class="text-center mb-4">Sign In</h3>
-        <form action="#" class="login-form">
+        <form (ngSubmit)="login()"class="login-form">
           <div class="form-group">
-            <input type="text" class="form-control rounded-left" placeholder="Username">
+            <input type="email"  [(ngModel)]="email" name="email" id="email" class="form-control rounded-left" placeholder="Email">
           </div>
           <div class="form-group d-flex">
-            <input type="password" class="form-control rounded-left" placeholder="Password">
+            <input type="password"   [(ngModel)]="password" name="password" class="form-control rounded-left" placeholder="Password">
           </div>
           <div class="form-group">
             <button type="submit" class="form-control btn btn-primary rounded submit px-3">Login</button>
@@ -130,14 +130,12 @@
               </label>
             </div>
             <div class="w-50 text-md-right">
-              <a href="#">Forgot Password</a>
+              <a href="/passwordrecover">Forgot Password</a>
             </div>
           </div>
         </form>
       </div>
-      <div class="modal-footer justify-content-center">
-        <p>Not a member? <a href="#">Create an account</a></p>
-      </div>
+     
     </div>
   </div>
 </div>
@@ -153,7 +151,9 @@
               <div class="col-10 col-xl-8 py-3">
                 <img class="img-fluid rounded mb-4" loading="lazy" src="https://firebasestorage.googleapis.com/v0/b/bucket-ce153.appspot.com/o/icono.png?alt=media&token=faa7b659-03ab-4932-ba1e-977d0da6589f" width="245" height="80" alt="Talent Music">
                 <hr class="border-primary-subtle mb-4">
-                <h2 class="h1 mb-4">We make digital products that drive you to stand out.</h2>
+                <h2 class="h1 mb-4">Promote
+                  your music
+                  with results and received feedback.</h2>
            
               </div>
             </div>
@@ -163,40 +163,58 @@
               <div class="row">
                 <div class="col-12">
                   <div class="mb-5">
-                    <h2 class="h3">Registration</h2>
-                    <h3 class="fs-6 fw-normal text-secondary m-0">Enter your details to register</h3>
+                    <h2 class="h3">Registro</h2>
+                    <h3 class="fs-6 fw-normal text-secondary m-0">Ingresa tus datos para registrarte</h3>
                   </div>
                 </div>
               </div>
-              <form action="#!">
+              <form (ngSubmit)="insertar()">
                 <div class="row gy-3 gy-md-4 overflow-hidden">
                   <div class="col-12">
                     <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" name="firstName" id="firstName" placeholder="First Name" required>
+                    <input type="text" class="form-control"  [(ngModel)]="firstName" name="firstName" id="firstName" placeholder="First Name" required>
                   </div>
                   <div class="col-12">
                     <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" name="lastName" id="lastName" placeholder="Last Name" required>
+                    <input type="text" class="form-control"   [(ngModel)]="lastName" name="lastName" id="lastName" placeholder="Last Name" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="categoria" class="form-label">Category<span class="text-danger">*</span></label>
+                    <select class="form-control"   [(ngModel)]="categoria" name="categoria" id="categoria" required>
+                      <option value="" disabled selected>Selecciona una opción</option>
+                      <option value="curadores">Musical or professional curators</option>
+                      <option value="usuario">Users</option>
+                    </select>
                   </div>
                   <div class="col-12">
                     <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required>
+                    <input type="email" class="form-control"  (input)="verificarUnicidad()" [(ngModel)]="email" name="email" id="email" placeholder="name@example.com" required>
+                  </div>
+                  <div *ngIf="emailExistente" class="error-message">
+                    El email ya existe. Por favor, elige otro.
                   </div>
                   <div class="col-12">
                     <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
-                    <input type="password" class="form-control" name="password" id="password" value="" required>
+                    <input type="password" class="form-control"  [(ngModel)]="password" name="password" id="password" value="" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="passwordc"    class="form-label">Confirm Password <span class="text-danger">*</span></label>
+                    <input type="passwordc" class="form-control" [(ngModel)]="passwordc"  name="passwordc" id="passwordc" value="" required>
+                    <div *ngIf="passwordc && !validarContrasena()" class="error-message">
+                      Las contraseñas no coinciden.
+                    </div>
                   </div>
                   <div class="col-12">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" name="iAgree" id="iAgree" required>
-                      <label class="form-check-label text-secondary" for="iAgree">
-                        I agree to the <a href="#!" class="link-primary text-decoration-none">terms and conditions</a>
+                      <input class="form-check-input" type="checkbox" value="" name="iAgree" id="iAgree" required style="margin-left: 5px;">
+                      <label class="form-check-label text-secondary" for="iAgree" style="margin-left: 30px;">
+                        I agree to the <a href="#!" class="link-primary text-decoration-none ">terms and conditions</a>
                       </label>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="d-grid">
-                      <button class="btn bsb-btn-xl btn-primary" type="submit">Sign up</button>
+                      <button class="btn bsb-btn-xl btn-primary"  (click)="registrarUsuario()"  [disabled]="isButtonDisabled"  type="submit">Continue</button>
                     </div>
                   </div>
                 </div>
@@ -204,7 +222,7 @@
               <div class="row">
                 <div class="col-12">
                   <hr class="mt-5 mb-4 border-secondary-subtle">
-                  <p class="m-0 text-secondary text-center">Already have an account? <a href="#!" class="link-primary text-decoration-none">Sign in</a></p>
+                  <p class="m-0 text-secondary text-center">Already have an account? <a href="/" class="link-primary text-decoration-none">Sign in</a></p>
                 </div>
               </div>
               
