@@ -25,8 +25,8 @@ export class PrincipalComponent implements OnInit {
   }
 
 
-  email: string = '';
-  password: string = '';
+  email1: string = '';
+  password1: string = '';
   @ViewChild('navbar', { static: true }) navbarRef: ElementRef | undefined;
 
   constructor
@@ -74,8 +74,8 @@ export class PrincipalComponent implements OnInit {
   async login() {
    
     const credentials = {
-      email: this.email,
-      password: this.password
+      email1: this.email1,
+      password1: this.password1
     };
 
     const httpOptions = {

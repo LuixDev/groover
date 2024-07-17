@@ -18,6 +18,8 @@ export class RegisterCuradorComponent {
   firstName: string = '';
   lastName: string = '';
   categoria: string = '';
+  email1: string = '';
+  password1: string = '';
   email: string = '';
   password: string = '';
   isButtonDisabled = false;
@@ -147,8 +149,8 @@ export class RegisterCuradorComponent {
 
   async login() {
     const credentials = {
-      email: this.email,
-      password: this.password
+      email1: this.email1,
+      password1: this.password1
     };
 
     const httpOptions = {
